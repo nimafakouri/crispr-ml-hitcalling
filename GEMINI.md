@@ -33,7 +33,10 @@ Processed data is expected to be stored in `data_processed/`, and analysis resul
 
 This project primarily relies on Python and Jupyter notebooks. To run the analysis:
 
-1.  Ensure you have Python and the necessary libraries (at least `pandas`) installed in your environment. It is recommended to use a virtual environment.
+1.  **Environment Setup:** Ensure you have the `bioenv` mamba environment installed. This environment contains the necessary libraries for data science and CRISPR analysis.
+    ```bash
+    mamba activate bioenv
+    ```
 2.  Open the Jupyter notebooks (e.g., `notebooks/01_exploration.ipynb`) in a Jupyter environment (Jupyter Lab or Jupyter Notebook).
 3.  Execute the cells sequentially to reproduce the data loading and exploration steps.
 

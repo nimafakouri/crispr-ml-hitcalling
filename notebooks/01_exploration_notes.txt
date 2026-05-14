@@ -1,0 +1,3 @@
+
+2. Phase 4
+I inspected the the file. SO far I identified how the data in the "AvanaRawReadcounts" and "ScreenSequenceMap" are organized.

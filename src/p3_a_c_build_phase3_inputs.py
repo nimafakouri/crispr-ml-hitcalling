@@ -26,15 +26,13 @@ import pandas as pd
 # --------------------------------------------------------------------------- #
 # Paths
 # --------------------------------------------------------------------------- #
-# This file lives at <repo>/crispr-ml-hitcalling/src/01_build_phase3_inputs.py
-# Raw data lives at   <repo>/data/raw/
-# Outputs go to       <repo>/data/processed/phase3_inputs/
-SCRIPT_DIR = Path(__file__).resolve().parent
-HITCALLING_ROOT = SCRIPT_DIR.parent          # .../crispr-ml-hitcalling
-REPO_ROOT = HITCALLING_ROOT.parent            # .../crispr_ai_ml
+# The data folder lives on an external SSD (too large for the laptop drive).
+# Override at runtime with:  export CRISPR_DATA_ROOT=/path/to/data
+DEFAULT_DATA_ROOT = "/Volumes/nimas_usb/project_data_repo/crispr_ai_ml/data"
+DATA_ROOT = Path(os.environ.get("CRISPR_DATA_ROOT", DEFAULT_DATA_ROOT))
 
-RAW_DIR = REPO_ROOT / "data" / "raw"
-OUT_DIR = REPO_ROOT / "data" / "processed" / "phase3_inputs"
+RAW_DIR = DATA_ROOT / "raw"
+OUT_DIR = DATA_ROOT / "processed" / "phase3_inputs"
 
 RAW_READCOUNTS = RAW_DIR / "AvanaRawReadcounts.csv"
 GUIDE_MAP = RAW_DIR / "AvanaGuideMap.csv"

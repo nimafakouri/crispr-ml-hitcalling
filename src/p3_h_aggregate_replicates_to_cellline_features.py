@@ -36,13 +36,16 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
+try:
+    from .data_paths import DATA_ROOT
+except ImportError:  # Support running this file directly.
+    from data_paths import DATA_ROOT
+
 
 # --------------------------------------------------------------------------- #
 # Paths
 # --------------------------------------------------------------------------- #
-PROJECT_DIR = Path("/Volumes/nimas_usb/project_data_repo/crispr_ai_ml")
-DATA_DIR = PROJECT_DIR / "data"
-PHASE3_DIR = DATA_DIR / "processed" / "phase3_inputs"
+PHASE3_DIR = DATA_ROOT / "processed" / "phase3_inputs"
 
 GENE_REPLICATE_FEATURES_PATH = PHASE3_DIR / "gene_level_log2fc_features_by_replicate.csv"
 SCREEN_METADATA_PATH = PHASE3_DIR / "screen_metadata_pass.csv"

@@ -23,13 +23,17 @@ from pathlib import Path
 
 import pandas as pd
 
+try:
+    from .data_paths import DATA_ROOT
+except ImportError:  # Support running this file directly.
+    from data_paths import DATA_ROOT
+
 
 # --------------------------------------------------------------------------- #
 # Paths
 # --------------------------------------------------------------------------- #
-PROJECT_DIR = Path("/Volumes/nimas_usb/project_data_repo/crispr_ai_ml")
-RAW_DIR = PROJECT_DIR / "data" / "raw"
-PROCESSED_DIR = PROJECT_DIR / "data" / "processed"
+RAW_DIR = DATA_ROOT / "raw"
+PROCESSED_DIR = DATA_ROOT / "processed"
 PHASE3_DIR = PROCESSED_DIR / "phase3_inputs"
 
 GUIDE_MAP_PATH = RAW_DIR / "AvanaGuideMap.csv"

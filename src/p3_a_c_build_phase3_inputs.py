@@ -17,20 +17,19 @@ Run:
     python src/01_build_phase3_inputs.py
 """
 
-import os
 import sys
 from pathlib import Path
 
 import pandas as pd
 
+try:
+    from .data_paths import DATA_ROOT
+except ImportError:  # Support running this file directly.
+    from data_paths import DATA_ROOT
+
 # --------------------------------------------------------------------------- #
 # Paths
 # --------------------------------------------------------------------------- #
-# The data folder lives on an external SSD (too large for the laptop drive).
-# Override at runtime with:  export CRISPR_DATA_ROOT=/path/to/data
-DEFAULT_DATA_ROOT = "/Volumes/nimas_usb/project_data_repo/crispr_ai_ml/data"
-DATA_ROOT = Path(os.environ.get("CRISPR_DATA_ROOT", DEFAULT_DATA_ROOT))
-
 RAW_DIR = DATA_ROOT / "raw"
 OUT_DIR = DATA_ROOT / "processed" / "phase3_inputs"
 

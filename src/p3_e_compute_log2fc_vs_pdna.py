@@ -25,11 +25,15 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
+try:
+    from .data_paths import DATA_ROOT
+except ImportError:  # Support running this file directly.
+    from data_paths import DATA_ROOT
+
 
 # --------------------------------------------------------------------------- #
 # Paths
 # --------------------------------------------------------------------------- #
-DATA_ROOT = Path("/Volumes/nimas_usb/project_data_repo/crispr_ai_ml/data")
 PHASE3_DIR = DATA_ROOT / "processed" / "phase3_inputs"
 
 SCREEN_RPM_PATH = PHASE3_DIR / "screen_rpm.csv"

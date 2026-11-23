@@ -3,7 +3,20 @@
 All pipeline scripts read the data location from `CRISPR_DATA_ROOT`. The value
 must name the directory containing `raw/` and `processed/`.
 
-If the variable is not set, scripts use `data/` inside this repository.
+If the variable is not set, `src/data_paths.py` uses the first folder that
+exists, in this order:
+
+1. `data/` inside this repository
+2. `data/` next to this repository, the current layout:
+
+```
+crispr_ai_ml/
+├── crispr-ml-hitcalling/   # this repository (code)
+└── data/                   # raw/ and processed/
+```
+
+With the current layout, no environment variable is needed. If neither folder
+exists, the scripts stop with an error that lists both locations.
 
 ## macOS (Google Drive for desktop)
 
